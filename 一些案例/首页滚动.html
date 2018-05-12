@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        ul,li{
+            list-style: none;
+            padding: 0px;
+            margin: 0;
+        }
+        .inhotwenz_r { overflow:hidden; }
+        .inhotwenz_r a { width:100%; float:left; line-height:40px; font-size:1em; overflow:hidden; white-space:nowrap; text-overflow:ellipsis; }
+        .inhotwenz_r a em { display:inline !important; }
+        .clearfix:after{
+            display: block;
+            clear: both;
+            content: "";
+            visibility: hidden;
+            height: 0;
+        }
+        .clearfix{
+            zoom:1;
+        }
+    </style>
+    <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+</head>
+<body>
+<div class="inhotwenz_r">
+    <ul>
+        <li class="clearfix">
+            <a href="/article/31252"><em>大旺超级旺大旺超级旺</em>
+                <!--<span></span>-->
+            </a>
+        </li>
+        <li class="clearfix">
+            <a href=""><em
+                    style="color:#f92a2a">盘盘盘盘盘盘！</em>
+                <!--<span></span>-->
+            </a>
+        </li>
+        <li class="clearfix">
+            <a href="/article/31250"><em>下周排行榜0430-0</em>
+                <!--<span></span>-->
+            </a>
+        </li>
+    </ul>
+</div>
+</body>
+<script>
+    loopSlide($('.inhotwenz_r'));
+    function loopSlide(target) {
+        var $ul = target.find('ul');
+        var liLength=$ul.find('li').length;
+        var singleHeight=$ul.height()/liLength;
+        $last= $ul.find('li:last').clone();
+        $ul.prepend($last);
+        $tempBox= $('<div class="tempBox" style="height:'+singleHeight+'px;overflow:hidden;position:relative;"></div>');
+        newUl = $ul.clone();
+        $tempBox.html(newUl);
+        target.html($tempBox);
+       newUl.css({
+           'padding':'0',
+           'margin':'0',
+           'position':'relative',
+           'top':'0'
+       });
+       var num=0;
+       animatemy();
+       function animatemy() {
+           num++;
+           num=(num%(liLength+1));
+           if(num==0){
+               newUl.css('top','0');
+               num++;
+           }
+           newUl.animate({'top':-num*singleHeight+'px'},2000,'swing',function () {
+               setTimeout(function () {
+                   animatemy();
+               },2000)
+           });
+       }
+    }
+
+</script>
+</html>

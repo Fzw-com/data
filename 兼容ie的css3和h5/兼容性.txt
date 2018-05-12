@@ -1,0 +1,7 @@
+透明度：opacity: 0;
+	filter:alpha(opacity=0); 
+
+圆角 ：border-radius: 4px;
+
+字体垂直居中：40px为盒子高度
+	 font:normal normal normal 12px/40px 'Microsoft YaHei';
