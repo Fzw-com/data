@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8">
@@ -22,10 +22,9 @@
                 text-align: center;
                 font:normal normal normal 12px/40px 'Microsoft YaHei';
                 cursor: pointer;
-               /* border-radius: 4px;
-                behavior: url(ie-css3.htc); */
-                border-radius: 4px;  
-                behavior: url(ie-css3.htc); /* 通知IE浏览器调用脚本作用于'box'类【必须使用这个】 */  
+                border-radius: 4px;
+                behavior: url(ie-css3.htc);
+                /* 通知IE浏览器调用脚本作用于'box'类【必须使用这个】 */  
             }
             .blueButton:hover
             {
@@ -50,6 +49,20 @@
                 height: 30px;
                 font:normal normal normal 14px/30px 'Microsoft YaHei';
             }*/
+
+
+            .box{
+                position:relative;
+                width:200px;height:200px;
+                margin:200px auto;
+                background:#58BC58;
+                border-radius: 20px;
+                box-shadow: 0px 5px 30px rgb(204, 204, 204);  
+                behavior: url(ie-css3.htc);
+                -ms-filter:"progid:DXImageTransform.Microsoft.Shadow(Strength=4,Direction=135, Color='#000000')";
+
+                filter:progid:DXImageTransform.Microsoft.Shadow(Strength=4,Direction=135,Color='#000000');
+            }
         </style>
         <script src="../jquery-3.1.0.min.js"></script>
         <title>file自定义上传</title>
@@ -57,6 +70,7 @@
     <body>
         <a href='javascript:void(0);' class="blueButton">浏览</a>
         <input type="file" class="myFileUpload" />
+        <div class = 'box'>哈哈哈哈哈哈哈</div>
     </body>
 </html>
 <script>

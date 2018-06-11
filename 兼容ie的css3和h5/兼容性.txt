@@ -5,3 +5,5 @@
 
 字体垂直居中：40px为盒子高度
 	 font:normal normal normal 12px/40px 'Microsoft YaHei';
+
+注意：看效果时关掉F12
