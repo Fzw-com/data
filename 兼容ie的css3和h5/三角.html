@@ -13,9 +13,53 @@
   border-right: 100px solid black;
   border-bottom: 100px solid transparent;
 }
+
+.arrow1{
+width:10px;
+height:10px;
+border:10px solid #000;
+border-left-color:orange;
+}
+/* ------------------- 左箭头1-----方向可以改变left---------------*/
+.arrow2{
+width:0;
+height:0;
+border: 10px solid transparent;
+border-left-color: orange;//左箭头
+}
+
+/* ------------------- 左箭头2--------------------*/
+.arrow3{
+width:0;
+height:0;
+border: 10px solid transparent;
+border-left-color: orange;
+position:absolute;
+content:'';
+}
+/* ------------------------------------------- */
+.arrow4{
+    position: relative;
+}
+.arrow4:after,.arrow4:before {
+    width: 0;
+    height: 0;
+    border: 10px solid transparent;
+    border-left-color: orange;
+    position: absolute;
+    content: "";
+}
+.arrow4:before{
+    top: 0;
+    left: 70px;//根据实际情况调整
+    border-left-color: white;
+} 
 </style>
 <body>
     <div class = 'jiao'></div>
-    
+    <div class="arrow1"></div>
+    <div class="arrow2"></div>
+    <div class="arrow3"></div><br />
+    <div class="arrow4">文字文字</div>
 </body>
 </html>
