@@ -2,7 +2,7 @@
 * @Author: Marte
 * @Date:   2018-04-25 22:41:07
 * @Last Modified by:   Marte
-* @Last Modified time: 2018-04-25 22:42:28
+* @Last Modified time: 2018-11-12 20:50:13
 */
 
 // 封装函数
@@ -708,3 +708,14 @@ function _isEmail(strEmail) {
     } else
         return false;
 }
+
+//验证金额
+function money(num){
+    var exp = /^([1-9][\d]{0,7}|0)(\.[\d]{1,2})?$/;
+    if(exp.test(num)){
+        alert('right');
+    }else{
+        alert('wrong');
+    }
+}
+               
