@@ -35,11 +35,11 @@ function initMySlider(opt){
     }
     //初始化用户传参
     that = opt.that;
-    yxxruiSliderData.datas = opts.datas || yxxruiSliderData.datas;
-    yxxruiSliderData.blankWidth = opts.blankWidth == undefined?yxxruiSliderData.blankWidth:opts.blankWidth;
-    yxxruiSliderData.newImgWidth = opts.newImgWidth == undefined?yxxruiSliderData.newImgWidth:opts.newImgWidth;
+    yxxruiSliderData.datas = opt.datas || yxxruiSliderData.datas;
+    yxxruiSliderData.blankWidth = opt.blankWidth == undefined?yxxruiSliderData.blankWidth:opt.blankWidth;
+    yxxruiSliderData.newImgWidth = opt.newImgWidth == undefined?yxxruiSliderData.newImgWidth:opt.newImgWidth;
     autoRun = opt.autoRun;
-    initerval = opt.interval || interval;
+    interval = opt.interval || interval;
     duration = opt.duration || duration;
     direction = opt.direction || direction;
     startSlideCallback = opt.startSlide || startSlideCallback;
@@ -51,7 +51,7 @@ function initMySlider(opt){
         return ;
     }
     for(var i = 0;i<len;i++){
-       yxxruiSliderData.indicateDots.push(i+1); 
+      yxxruiSliderData.indicateDote.push(i+1); 
     }
 
     var fistImg = yxxruiSliderData.datas[0];
@@ -67,16 +67,17 @@ function initMySlider(opt){
     var ox = kx + nx*2; //每页无效宽度
     var pageWidth = w-ox;//每页大小
     var fx = pageWidth - nx;//首次打开默认位置
-    yxxruiSliderData.totaoWidth = yxxruiSliderData.datas.length * pageWidth;
+    yxxruiSliderData.totalWidth = yxxruiSliderData.datas.length * pageWidth;
     yxxruiSliderData.firstX = -fx;
     yxxruiSliderData.x = -fx;
-
+    let cc = 'yxxruiSliderData.totaoWidth';
     that.setData({
         yxxruiSliderData:yxxruiSliderData
     });
+    console.log(that)
     dealEvent(that);
-    startSlideCallback && startSlideCallback(1)
-    endSlideCallback && endSlideCallback(1)
+    // startSlideCallback && startSlideCallback(1)
+    // endSlideCallback && endSlideCallback(1)
 
 
 }
@@ -159,10 +160,10 @@ function slideTo(that,x){ //锁，若正在滚动，则不允许操作
 
         if(i>=Math.abs(x)){
             slideTimer && clearInterval(slideTimer);
-
+            
             //向左滚动到终点，最后一张
             if(lastx + x>=yxxruiSliderData.newImgWidth){
-                yxxruiSliderData.x = yxxruiSliderData.newImgWidth - (totalWidth + lastx + x -perScreenX)
+              yxxruiSliderData.x = yxxruiSliderData.newImgWidth - (totalWidth - x-perScreenX)
             }
             //向右滚动到终点，回到最开始
             if(lastx + x + totalWidth - perScreenX<=yxxruiSliderData.newImgWidth){
